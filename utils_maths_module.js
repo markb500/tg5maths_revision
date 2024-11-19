@@ -25,6 +25,8 @@ function cfchk(num, ltr, not1, notplus) {
     } else {
       return "+" + num + ltr;
     }
+  } else if (num === 0) {   //num is zero
+    return "";
   } else {      //num -ve
     if(num === -1 && not1) {
       return "-" + ltr;
@@ -387,8 +389,6 @@ function scaleDraw(ctx2, xpositive, ypositive, xscale, yscale) {
     ctx2.font = "30px Comic Sans MS";
     ctx2.fillText(ltr1txt, xscaleposn[5], xposn + 3 * xoffset);    //x scale label
     ctx2.fillText(ltr2txt, yposn + 1.5 * yoffset, yscaleposn[5]);  //y scale label
-    ctx2.font = "20px Comic Sans MS";
-    ctx2.fillText('Solution: (' + x + ', ' + y + ')', xscaleposn[3], yscaleposn[5]);  //Show solution on graph
     ctx2.stroke();
     for (let i = 0; i < 5; i++) {
         ctx2.lineWidth = 0.4;
@@ -516,13 +516,13 @@ function scaleSet(x, y) {
   } else {
       xscale = 20;
   }
-  if (Math.abs(y) < 4) {
+  if (Math.abs(y) < 6) {
       yscale = 1;
-  } else if (Math.abs(y) < 9) {
+  } else if (Math.abs(y) < 13) {
       yscale = 2;
-  } else if (Math.abs(y) < 21) {
+  } else if (Math.abs(y) < 30) {
       yscale = 5;
-  } else if (Math.abs(y) < 41) {
+  } else if (Math.abs(y) < 60) {
       yscale = 10;
   } else {
       yscale = 20;
@@ -530,57 +530,17 @@ function scaleSet(x, y) {
   return {xptve: xpositive, yptve: ypositive, x: xscale, y: yscale};
 }
 
-function coordTab(x, y, xcf1, ycf1, c1, xcf2, ycf2, c2, xscale, xpositive, sum) {
-  //Used in Simultaneous Module. Creates the coordinates for the coord tables
-  if (xpositive) {
-    xtab11 = x - xscale;
-    xtab21 = x - xscale;
-    if (sum === 1) {
-      ytab11 = dp((c1 - xcf1 * xtab11) / ycf1, 1, -1);
-      ytab21 = dp((c2 - xcf2 * xtab21) / ycf2, 1, -1);
-    } else {
-      ytab11 = dp(xcf1 * xtab11 + c1, 1, -1);
-      ytab21 = dp(xcf2 * xtab21 + c2, 1, -1);
-    }
-    xtab12 = x;
-    xtab22 = x;
-    ytab12 = y;
-    ytab22 = y;
-    xtab13 = x + xscale;
-    xtab23 = x + xscale;
-    if (sum === 1) {
-      ytab13 = dp((c1 - xcf1 * xtab13) / ycf1, 1, -1);
-      ytab23 = dp((c2 - xcf2 * xtab23) / ycf2, 1, -1);
-    } else {
-      ytab13 = dp(xcf1 * xtab13 + c1, 1, -1);
-      ytab23 = dp(xcf2 * xtab23 + c2, 1, -1);
-    }
-  } else {
-    xtab11 = x + xscale;
-    xtab21 = x + xscale;
-    if (sum === 1) {
-      ytab11 = dp((c1 - xcf1 * xtab11) / ycf1, 1, -1);
-      ytab21 = dp((c2 - xcf2 * xtab21) / ycf2, 1, -1);
-    } else {
-      ytab11 = dp(xcf1 * xtab11 + c1, 1, -1);
-      ytab21 = dp(xcf2 * xtab21 + c2, 1, -1);
-    }
-    xtab12 = x;
-    xtab22 = x;
-    ytab12 = y;
-    ytab22 = y;
-    xtab13 = x - xscale;
-    xtab23 = x - xscale;
-    if (sum === 1) {
-      ytab13 = dp((c1 - xcf1 * xtab13) / ycf1, 1, -1);
-      ytab23 = dp((c2 - xcf2 * xtab23) / ycf2, 1, -1);
-    } else {
-      ytab13 = dp(xcf1 * xtab13 + c1, 1, -1);
-      ytab23 = dp(xcf2 * xtab23 + c2, 1, -1);
-    }
-  }
-  return {x11: xtab11, x12: xtab12, x13: xtab13, y11: ytab11, y12: ytab12, y13: ytab13, 
-          x21: xtab21, x22: xtab22, x23: xtab23, y21: ytab21, y22: ytab22, y23: ytab23};
+function coordTab(xcf1, c1) {
+  //Used in Straight Line Graphs Module. Creates the coordinates for the coord table
+  xtab11 = 1;
+  xtab12 = 2;
+  xtab13 = 3;
+  xtab14 = 4;
+  ytab11 = dp(xcf1 * xtab11 + c1, 1, -1);
+  ytab12 = dp(xcf1 * xtab12 + c1, 1, -1);
+  ytab13 = dp(xcf1 * xtab13 + c1, 1, -1);
+  ytab14 = dp(xcf1 * xtab14 + c1, 1, -1);
+  return {x11: xtab11, x12: xtab12, x13: xtab13, x14: xtab14, y11: ytab11, y12: ytab12, y13: ytab13, y14: ytab14};
 }
 
 function QLimitRepeats(arr, x) {
@@ -661,9 +621,9 @@ function sumshow(sumType, h1, w1, h2, w2) {
       ctx2 = myCanvas2.getContext('2d');
       sumData = sincosgraph(ctx2);
       break;
-    case "simultaneous":
+    case "straightgraph":
       ctx2 = myCanvas2.getContext('2d');
-      sumData = simultaneous(ctx2);
+      sumData = straightgraph(ctx2);
       break;
     case "areavol":
       ctx = myCanvas.getContext('2d');
@@ -756,12 +716,12 @@ function testsumshow(sumType, qnum) {
       ctx2 = document.getElementById('myCanvasa' + qnum).getContext('2d');
       sumData = sincosgraph(ctx2);
       break;
-    case "simultaneous":
+    case "straightgraph":
       document.getElementById('myCanvasa' + qnum).style.visibility = 'visible';
       document.getElementById('myCanvasa' + qnum).height = '400';
       document.getElementById('myCanvasa' + qnum).width = '400';
       ctx2 = document.getElementById('myCanvasa' + qnum).getContext('2d');
-      sumData = simultaneous(ctx2);
+      sumData = straightgraph(ctx2);
       sumData[1] = sumData[1].replace("<br>".repeat(14), "");     //Removes lead in <br>'s from solution
       break;
     case "areavol":
@@ -1000,8 +960,8 @@ function testshow() {
         sumAuth('sincosgraph', qnum);
         qnum = qnum + 1;
         break;
-      case "Simultaneous Equations":
-        sumAuth('simultaneous', qnum);
+      case "Straight Line Graphs":
+        sumAuth('straightgraph', qnum);
         qnum = qnum + 1;
         break;
       case "Surface Area &amp; Volume":

@@ -16,12 +16,14 @@ function numform() {
             var num = dp(num1 * num2, 2, -1);
             var pwr = pwr1 + pwr2;
             var results = sciengnot(num, pwr);  //returns array[scinum, scipwr, engnum, engpwr]
-            sumq += "Without using a calculator, calculate the following, giving your answer in Standard Form (Scientific Notation) <BR>";
+            sumq += "Without using a calculator, calculate the following, giving your answer in Standard Form (Scientific Notation) ";
+            sumq += "and Preferred Standard Form (Engineering Notation). Show all your working<BR>";
             sumq += "$$" + pwrzero(num1, pwr1) + "\\ \\ \\times\\ \\ " + pwrzero(num2, pwr2) + "$$<BR>";
 
             suma += "$$\\begin{aligned}&=" + num1 + "\\times" + num2 + "\\times 10^{" + pwr1 + "\\ +\\ " + pwr2 + "}\\\\[5pt]";
             suma += "&=" + num + "\\times 10^{" + pwr + "}\\\\[5pt]";
             suma += "In\\ Scientific\\ Notation &=\\underline{\\mathbf{" + results[0] + "\\times 10^{" + results[1] + "}}}\\\\[5pt]";
+            suma += "In\\ Engineering\\ Notation &=\\underline{\\mathbf{" + results[2] + "\\times 10^{" + results[3] + "}}}\\\\[5pt]";
             suma += "\\end{aligned}$$";
             break;
         case 2: //divide the numbers
@@ -34,12 +36,14 @@ function numform() {
             var num = dp(num1 / num2, 2, -1);
             var pwr = pwr1 - pwr2;
             var results = sciengnot(num, pwr);  //returns array[scinum, scipwr, engnum, engpwr]
-            sumq += "Without using a calculator, calculate the following, giving your answer in Standard Form (Scientific Notation) <BR>";
+            sumq += "Without using a calculator, calculate the following, giving your answer in Standard Form (Scientific Notation) ";
+            sumq += "and Preferred Standard Form (Engineering Notation). Show all your working<BR>";
             sumq += "$$\\frac{" + pwrzero(num1, pwr1) + "}{" + pwrzero(num2, pwr2) + "}$$<BR>";
 
             suma += "$$\\begin{aligned}&=\\frac{" + num1 + "}{" + num2 + "}\\times 10^{" + pwr1 + "\\ -\\ " + pwr2 + "}\\\\[5pt]";
             suma += "&=" + num + "\\times 10^{" + pwr + "}\\\\[5pt]";
             suma += "In\\ Scientific\\ Notation &=\\underline{\\mathbf{" + results[0] + "\\times 10^{" + results[1] + "}}}\\\\[5pt]";
+            suma += "In\\ Engineering\\ Notation &=\\underline{\\mathbf{" + results[2] + "\\times 10^{" + results[3] + "}}}\\\\[5pt]";
             suma += "\\end{aligned}$$";
             break;
         case 3: //approximate & solve, using sci notation (a x b)/c
