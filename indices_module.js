@@ -80,7 +80,7 @@ function indices() {
             suma += "\\end{aligned}$$";
             break;
     }
-    var notesLink = "images/20200504-MathsBook3Indicesv1_3-APO.pdf#page=4";
+    var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=40";
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

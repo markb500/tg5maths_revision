@@ -364,7 +364,7 @@ function fracs() {
     } else {
         suma += "\\end{aligned}$$";
     }
-    var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=22";
+    var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=5";
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

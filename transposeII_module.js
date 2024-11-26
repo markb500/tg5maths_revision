@@ -3,7 +3,7 @@ function transposeII() {
     var sum;
     sumq = "";
     suma = "";
-    sumarrtranspose2 = QLimitRepeats(sumarrtranspose2, 20);   //Ensures no repeat question until at least 50% of questions shown
+    sumarrtranspose2 = QLimitRepeats(sumarrtranspose2, 21);   //Ensures no repeat question until at least 50% of questions shown
     sum = sumarrtranspose2[sumarrtranspose2.length - 1];
     switch(sum) {
         case 1:
@@ -189,9 +189,16 @@ function transposeII() {
             suma += "h\\left(\\frac{t}{2\\pi}\\right)^2-h^2&=g^2\\\\[5pt]";
             suma += "\\sqrt{h\\left(\\frac{t}{2\\pi}\\right)^2-h^2}&=g\\end{aligned}$$";
             break;
+
+        case 21:
+            sumq += "Transpose the following to make \\(t_1\\) the subject.";
+            sumq += "$$Q=mc(t_1-t_2)$$";
+            suma += "$$\\begin{aligned}\\frac{Q}{mc}&=t_1-t_2\\\\[5pt]";
+            suma += "\\frac{Q}{mc}+t_2&=t_1\\end{aligned}$$";
+            break;
     }
     
-    var notesLink = "images/20200504-MathsBook5AlgebraicOpsv1_3-APO.pdf#page=29"
+    var notesLink = "images/20240924-TG5MathsBook2-AlgebraV1_0-APO.pdf#page=27"
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

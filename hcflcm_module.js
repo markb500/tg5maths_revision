@@ -164,7 +164,7 @@ function hcflcm(ctx2) {
                 chkpwr(term3[3], term3[4] - hcf[4]) + chkpwr(term3[5], term3[6] - hcf[6]) + 
                 f32 + chkpwr(term3[7], term3[8] - hcf[8]) + f33 + "\\right)\\end{aligned}$$"
 
-  var notesLink = "images/20200504-MathsBook4HCFLCMFactv1_5-APO.pdf#page=3"
+  var notesLink = "images/20240924-TG5MathsBook2-AlgebraV1_0-APO.pdf#page=9"
   var sumArray = [sumq, suma, notesLink];
   return sumArray;
 }

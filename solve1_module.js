@@ -161,7 +161,7 @@ function solve1() {
         suma += "\\end{aligned}$$";
     }
 
-    var notesLink = "images/20200504-MathsBook5AlgebraicOpsv1_3-APO.pdf#page=24"
+    var notesLink = "images/20240924-TG5MathsBook2-AlgebraV1_0-APO.pdf#page=20"
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

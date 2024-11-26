@@ -228,7 +228,7 @@ function transposeI() {
             suma += "x&=\\left(\\frac{k}{y}\\right)^3\\end{aligned}$$";
             break;
     }
-    var notesLink = "images/20200504-MathsBook5AlgebraicOpsv1_3-APO.pdf#page=29"
+    var notesLink = "images/20240924-TG5MathsBook2-AlgebraV1_0-APO.pdf#page=27"
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

@@ -24,7 +24,6 @@ function straightgraph(ctx2) {
             ltr2txt = '\u03b5';
             break;
     }
-    var notesLink = "images/20200505-MathsBook10GraphsSimEquv1_5-APO.pdf#page=20";
     do {
         do {
             xcf1 = rndgen(-3, 3, 0, 1, -1)
@@ -161,6 +160,7 @@ function straightgraph(ctx2) {
     ctx2.fillText('x', coordxtab13.x, coordxtab13.y);
     ctx2.fillText('x', coordxtab14.x, coordxtab14.y);
 
+    var notesLink = "images/20240924-TG5MathsBook3-GraphsStatsV1_0-APO.pdf#page=4";
     var sumArray = [sumq, suma, notesLink];
     return sumArray;
 }

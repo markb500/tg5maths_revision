@@ -598,6 +598,10 @@ function sumshow(sumType, h1, w1, h2, w2) {
     case "solve1":
       sumData = solve1();
       break;
+    case "stats":
+      ctx = myCanvas.getContext('2d');
+      sumData = stats(ctx);
+      break;
     case "quadratics":
       sumData = quadratics();
       break;

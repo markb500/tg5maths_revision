@@ -9,7 +9,7 @@ function percentratio() {
     sum = sumarrpercent[sumarrpercent.length - 1];
     switch(sum) {
         case 1://Without using a calculator, express num1 as a percentage of num2 to 1 dp.
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=50";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=32";
             num1 =  rndgen(1, 5, 1, 0.1, -1);  //1.1 to 5.1 1dp
             num2 =  rndgen(num1 + 0.4, 8, 1, 0.1, -1);  //(num1 + 0.4) to 8 1dp
             sumq += "Without using a calculator, express " + num1 + " as a percentage of " + num2 + 
@@ -18,7 +18,7 @@ function percentratio() {
                         dp((num1 / num2) * 100, 1, 1) + "\\ \\%\\ (1\\ dp)$$";
             break;
         case 2://Calculate, without using a calculator, p % of num1, to 1 dp.
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=50";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=32";
             do {
                 pct = rndgen(3, 99, 0, 1, -1);
             } while(pct === 10 || pct === 25 || pct === 50 || pct === 75)
@@ -29,7 +29,7 @@ function percentratio() {
                         dp((pct / 100) * num1, 1, 1) + "\\ (1\\ dp)$$";
             break;
         case 3://Without using a calculator, express p % as a proper fraction in its simplest form.
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=50";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=32";
             pct = rndgen(3, 99, 0, 1, -1);
             comdenom = gcd2(pct, 100);
             sumq += "Without using a calculator, express " + pct + "&nbsp;% as a proper fraction in its simplest form.";
@@ -40,13 +40,13 @@ function percentratio() {
             }
             break;
         case 4://Without using a calculator, convert p % to a decimal.
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=50";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=32";
             pct = rndgen(3, 99, 1, 0.1, -1);
             sumq += "Without using a calculator, convert " + pct + "&nbsp;% to a decimal.";
             suma += "$$\\frac{" + pct + "}{100}=" + dp(pct / 100, 3, -1) + "$$"; 
             break;
         case 5://Without using a calculator, convert Round(p / 100, 4) to a percentage.
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=50";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=32";
             pct = rndgen(0.5, 99, 2, 0.01, -1);
             sumq += "Without using a calculator, convert " + 
                         dp(pct / 100, 4, -1) + " to a percentage.";
@@ -54,7 +54,7 @@ function percentratio() {
                         "\\times 100=" + pct + "\\ \\%$$";   
             break;
         case 6://Without using a calculator, divide num1 unit(iratunit) in the ratio rat1:rat2:rat3.
-        var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=52";
+        var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=30";
             do {
                 num1 = rndgen(48, 91, 0, 1, -1);
                 rat1 = rndgen(1, 10, 0, 1, -1);

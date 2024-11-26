@@ -33,7 +33,7 @@ function noncalc() {
             suma += "$$\\begin{aligned}&=" + a + "\\times\\frac {" + dp(b + c, 2, -1) + "}{" + d + "} \\\\[5pt]";
             suma += "&=" + a + "\\times" + dp((b + c) / d, 3, -1) + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(a *(b + c) / d, 2, -1) + "}}\\end{aligned}$$";
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=7";
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 2:
             //a + b / c x d
@@ -56,7 +56,7 @@ function noncalc() {
             suma += "$$\\begin{aligned}&=\\frac {" + dp(a + b, 2, -1) + "}{" + c + "}\\times" + d + " \\\\[5pt]";
             suma += "&=" + dp((a + b) / c, 3, -1) + "\\times" + d + " \\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp((a + b) / c * d, 2, -1) + "}}\\end{aligned}$$";
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=7";
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 3:
             //a / b + c x d
@@ -80,7 +80,7 @@ function noncalc() {
             suma += "$$\\begin{aligned}&=\\frac {" + a + "}{" + dp(b + c, 2, -1) + "}\\times" + d + " \\\\[5pt]";
             suma += "&=" + dp(a / (b + c), 3, -1) + "\\times" + d + " \\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(a / (b + c) * d, 2, -1) + "}}\\end{aligned}$$";
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=7";
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 4:
             //a + b(c + d) / e
@@ -109,7 +109,7 @@ function noncalc() {
             suma += "&=" + a + cfchk(b * (c + d), "", 0, 0) + "\\div" + e + "\\\\[5pt]";
             suma += "&=" + a + cfchk(b * (c + d) / e, "", 0, 0) + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(a + b * (c + d) / e, 2, -1) + "}}\\end{aligned}$$"
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=54";
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 5:
             //a / b + c(d + e)
@@ -136,7 +136,7 @@ function noncalc() {
             suma += "&=" + dp(a/b, 3, -1) + cfchk(c, "", 0, 0) + "\\times" + dp(d + e, 2, -1) + "\\\\[5pt]";
             suma += "&=" + dp(a/b, 3, -1) + cfchk(dp(c * (d + e), 3, -1), "", 0, 0) + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp(a / b + c * (d + e), 2, -1) + "}}\\end{aligned}$$"
-            var notesLink = "images/20200427-MathsBook1BasicNumv1_3-APO.pdf#page=54";
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 6:
             // a - (b(c - d)) / e    Whole numbers at each stage of calc
@@ -158,6 +158,7 @@ function noncalc() {
             suma += "&=" + a + "-" + ((b*(c-d))/e) + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + (a-((b*(c-d))/e)) + "}}";
             suma += "\\end{aligned}$$"
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 7:
             do{
@@ -182,6 +183,7 @@ function noncalc() {
             suma += "&=" + dp((a*b)/(c+d), 2, -1) + "-" + e + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp((a*b)/(c+d)-e, 2, -1) + "}}";
             suma += "\\end{aligned}$$"
+            var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
     }
     var sumArray = [sumq, suma, notesLink];
