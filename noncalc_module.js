@@ -161,6 +161,7 @@ function noncalc() {
             var notesLink = "images/20240924-TG5MathsBook1-NumeracyV1_0-APO.pdf#page=14";
             break;
         case 7:
+            //a * b / (c + d) - e
             do{
                 do{
                     a = rndgen(-20, 20, 0, 1, -1);          //Not 0, 1 or -1
@@ -179,7 +180,8 @@ function noncalc() {
                         //Solution max 1 dp, a*b max 100, avoid a or b = c+d (easy cancelling), avoid a*b = c+d (easy div)
             sumq += "Calculate the following, without using a calculator. Show all your working.<br />";
             sumq += "$$" + a + "\\times" + b + "\\div(" + c + "+" + d + ")-" + e + "$$";
-            suma += "$$\\begin{aligned}&=" + (a*b) + "\\div" + (c+d) + "-" + e + "\\\\[5pt]";
+            suma += "$$\\begin{aligned}&=" + a + "\\times" + b + "\\div" + (c+d) + "-" + e + "\\\\[5pt]";
+            suma += "&=" + (a * b) + "\\div" + (c+d) + "-" + e + "\\\\[5pt]";
             suma += "&=" + dp((a*b)/(c+d), 2, -1) + "-" + e + "\\\\[5pt]";
             suma += "&=\\underline{\\mathbf{" + dp((a*b)/(c+d)-e, 2, -1) + "}}";
             suma += "\\end{aligned}$$"
