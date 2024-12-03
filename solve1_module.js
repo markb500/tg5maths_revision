@@ -132,8 +132,10 @@ function solve1() {
                 x = (b * f + c * d) / (c * e + a * f);
             }
         } while((x - dp(x, 3, -1) !== 0) || 
-                    ((c * d + b * f) === (a * f + c * e)))  //Ensure solution max 3 dp and not 1 (too easy)
-    } else if (type = 5) {      //dxz - exy^2
+                    x % 0.25 !== 0 || 
+                    Math.abs(x) === 1 || 
+                    ((c * d + b * f) === (a * f + c * e)))  //Ensure solution max 2 dp in 0.25 steps and not 1 (too easy)
+    } else if (type === 5) {      //dxz - exy^2
         do {
             do {
                 a = rndgen(-9, 9, 0, 1, -1)
