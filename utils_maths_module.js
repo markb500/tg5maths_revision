@@ -728,6 +728,20 @@ function testsumshow(sumType, qnum) {
       sumData = straightgraph(ctx2);
       sumData[1] = sumData[1].replace("<br>".repeat(14), "");     //Removes lead in <br>'s from solution
       break;
+    case "statistics":
+      document.getElementById('myCanvasq' + qnum).style.visibility = 'visible';
+      document.getElementById('myCanvasq' + qnum).height = '500';
+      document.getElementById('myCanvasq' + qnum).width = '500';
+      ctx = document.getElementById('myCanvasq' + qnum).getContext('2d');
+      document.getElementById('myCanvasqa' + qnum).style.visibility = 'visible';
+      document.getElementById('myCanvasqa' + qnum).height = '500';
+      document.getElementById('myCanvasqa' + qnum).width = '500';
+      ctx2 = document.getElementById('myCanvasqa' + qnum).getContext('2d');
+      sumData = stats(ctx);
+      // sumData[0] = sumData[0] + '<br>'.repeat(6);    //Makes space for canvas between this and next q, in pre-print view
+      sumData[1] = sumData[1].replace("<br>".repeat(9), "");     //Removes lead in <br>'s from solution
+      ctx2.drawImage(document.getElementById('myCanvasq' + qnum), 0, 0);  //Shows q image in solution
+      break;
     case "areavol":
       document.getElementById('myCanvasq' + qnum).style.visibility = 'visible';
       document.getElementById('myCanvasq' + qnum).height = '300';
@@ -968,6 +982,10 @@ function testshow() {
         sumAuth('straightgraph', qnum);
         qnum = qnum + 1;
         break;
+        case "Statistics":
+          sumAuth('statistics', qnum);
+          qnum = qnum + 1;
+          break;
       case "Surface Area &amp; Volume":
         sumAuth('areavol', qnum);
         qnum = qnum + 1;
