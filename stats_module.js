@@ -138,12 +138,12 @@ function stats(ctx) {
             }
             break;
             case 3:
-                sumq += "A snooker table has 15 red balls and 1 each of white, yellow, brown, green, blue, pink and black balls. If the balls are placed in ";
-                sumq += "a bag and 1 ball is selected at random, calculate the probability of selecting:<br>a. a blue ball.<br>b. a red ball<br>c. a purple ball.";
-                suma += "$$Total\\ number\\ of\\ balls = 22$$";
-                suma += "$$\\begin{aligned}a&.\\ Probability\\ of\\ selecting\\ blue=\\frac{1}{22}\\\\[5pt]";
-                suma += "b&.\\ Probability\\ of\\ selecting\\ red=\\frac{15}{22}\\\\[5pt]";
-                suma += "c&.\\ Probability\\ of\\ selecting\\ purple=0";
+                sumq += "A snooker table has 15 red balls and 1 each of yellow, brown, green, blue, pink and black balls. If the balls are placed in ";
+                sumq += "a bag and 1 ball is selected at random, calculate the probability of selecting:<br>a. a blue ball.<br>b. a red ball<br>c. a non-red ball.";
+                suma += "$$Total\\ number\\ of\\ balls = 21$$";
+                suma += "$$\\begin{aligned}a&.\\ Probability\\ of\\ selecting\\ blue=\\frac{1}{21}\\\\[5pt]";
+                suma += "b&.\\ Probability\\ of\\ selecting\\ red=\\frac{15}{21}=\\frac{5}{7}\\\\[5pt]";
+                suma += "c&.\\ Probability\\ of\\ selecting\\ a\\ ball\\ that\\ isn't\\ red=\\frac{21-15}{21}=\\frac{6}{21}=\\frac{2}{7}";
                 suma += "\\end{aligned}$$";
                 break;
     }
