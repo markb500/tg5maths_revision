@@ -6,7 +6,7 @@ function stats(ctx) {
     suma = "";
     // sumarrprop = QLimitRepeats(sumarrprop, 2);   //Ensures no repeat question until at least 50% of questions shown
     // sum = sumarrprop[sumarrprop.length - 1];
-    switch(rndgen(1, 2, 0, 1, -1)) {
+    switch(rndgen(1, 3, 0, 1, -1)) {
         case 1:
             do{
                 a = rndgen(2, 36, 0, 1, -1);
@@ -137,6 +137,15 @@ function stats(ctx) {
                 ctx.stroke();
             }
             break;
+            case 3:
+                sumq += "A snooker table has 15 red balls and 1 each of white, yellow, brown, green, blue, pink and black balls. If the balls are placed in ";
+                sumq += "a bag and 1 ball is selected at random, calculate the probability of selecting:<br>a. a blue ball.<br>b. a red ball<br>c. a purple ball.";
+                suma += "$$Total\\ number\\ of\\ balls = 22$$";
+                suma += "$$\\begin{aligned}a&.\\ Probability\\ of\\ selecting\\ blue=\\frac{1}{22}\\\\[5pt]";
+                suma += "b&.\\ Probability\\ of\\ selecting\\ red=\\frac{15}{22}\\\\[5pt]";
+                suma += "c&.\\ Probability\\ of\\ selecting\\ purple=0";
+                suma += "\\end{aligned}$$";
+                break;
     }
     var notesLink = "images/20230706-MathsBook08Proportionv1_6-APO.pdf#page=4";
     var sumArray = [sumq, suma, notesLink];
