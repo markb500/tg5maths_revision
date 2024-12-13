@@ -1,12 +1,12 @@
-var sumq, suma;
+var sumarrstats = [], sumq, suma;
 function stats(ctx) {
-    //Produces randomly selected problems in statistics
+    //Produces randomly selected problems in statistics & probability.
     var sum, a, b, c, d, e;
     sumq = "";
     suma = "";
-    // sumarrprop = QLimitRepeats(sumarrprop, 2);   //Ensures no repeat question until at least 50% of questions shown
-    // sum = sumarrprop[sumarrprop.length - 1];
-    switch(rndgen(1, 3, 0, 1, -1)) {
+    sumarrstats = QLimitRepeats(sumarrstats, 3);   //Ensures no repeat question until at least 50% of questions shown
+    sum = sumarrstats[sumarrstats.length - 1];
+    switch(sum) {
         case 1:
             do{
                 a = rndgen(2, 36, 0, 1, -1);
