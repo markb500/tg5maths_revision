@@ -66,7 +66,6 @@ function percentratio() {
                 sumq += "Without using a calculator, divide " + num1 + ratunits[iratunit] + 
                             " in the ratio " + rat1 + ":" + rat2 + ":" + rat3 + ".";
                 suma += "$$" + rat1 + "+" + rat2 + "+" + rat3 + "=" + (rat1 + rat2 + rat3) + "$$";
-                // suma += "$$" + dp(10.32, 0, -1) + 10.32.toFixed() + "$$";
                 suma += "$$ \\frac{" + num1 + "}{" + (rat1 + rat2 + rat3) + "} \\times" + rat1 + "=" + 
                             dp(num1 * (rat1 / (rat1 + rat2 + rat3)), 0, -1) + ratunits[iratunit + 4] + "$$";
                 suma += "$$ \\frac{" + num1 + "}{" + (rat1 + rat2 + rat3) + "} \\times" + rat2 + "=" + 
