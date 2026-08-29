@@ -15,7 +15,6 @@ body {
 
 select:focus {
   border-color: #24a0ed;
-  outline: none;
 }
 
 /* Coordinate tables (Simultaneous Equations, etc.) */
@@ -85,4 +84,47 @@ td, th {
     max-width: 100%;
     height: auto;
   }
+}
+
+/* ---------- Accessibility / usability ---------- */
+:focus { outline: 3px solid #005fcc; outline-offset: 2px; }
+:focus:not(:focus-visible) { outline: none; }
+:focus-visible { outline: 3px solid #005fcc; outline-offset: 2px; }
+.btn:focus-visible,
+.topic-btn:focus-visible,
+#btnSoln:focus-visible,
+#testdesign:focus-visible,
+#btnStaffSoln:focus-visible,
+#userhelp:focus-visible,
+a:focus-visible,
+#colourSelect:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 1px #fff;
+}
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  background: #000;
+  color: #fff;
+  text-decoration: underline;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+.diagram-desc {
+  max-width: 40rem;
+  margin: 0.75rem auto 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-left: 4px solid #005fcc;
+  background: rgba(0, 95, 204, 0.06);
+  color: #222;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+.diagram-desc[hidden] { display: none !important; }
+#a { color: #9b0000 !important; }
+@media print {
+  .skip-link, .diagram-desc, #btnStaffSoln { display: none !important; }
 }

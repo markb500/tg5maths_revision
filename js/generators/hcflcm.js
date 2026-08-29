@@ -27,8 +27,8 @@ function primeExponents(arr) {
 
 function primeTree(ctx, term, primefacs, primesexp, x, y) {
   let num = term[0];
-  ctx.fillStyle = "red";
-  ctx.strokeStyle = "red";
+  ctx.fillStyle = '#9b0000';
+  ctx.strokeStyle = '#9b0000';
   ctx.textAlign = "left";
   ctx.font = "bold 22px STIX Two Math";
   ctx.fillText(term[0], x, y);
@@ -155,6 +155,11 @@ export function generate() {
       height: 350,
       width: 500,
       withSolution: true,
+      description:
+        'Diagram (shown with the solution): three prime-factor trees, one for each term in the expression, ' +
+        'with prime factors listed beside each tree to support finding the HCF and LCM.',
+      solutionDescription:
+        'Diagram (solution): three prime-factor trees for the three terms, with factors used to form the HCF and LCM.',
       draw: (ctx) => {
         ctx.clearRect(0, 0, 500, 350);
         primeTree(ctx, term1, primeFacs1, primesExp1, 75, 50);

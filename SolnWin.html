@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Maths Solution Window</title>
+  <title>Solution window — TG5 Maths Part I</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,32 +12,55 @@
   </script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
-    body { margin: 16px; }
-    #a2 { color: red; margin: 20px 0; }
-    canvas { display: block; margin-bottom: 12px; }
-    /* Coordinate tables (simultaneous equations, etc.) */
-    table {
-      margin-left: 75px;
-      margin-right: 75px;
-      margin-bottom: 30px;
+    :root { --bgcolour: #ffffff; }
+    body { margin: 16px; background-color: var(--bgcolour, #ffffff); }
+    #a2 {
+      color: #9b0000;
+      margin: 12px 0 20px 0;
+      position: relative;
+      z-index: 2;
+      clear: both;
     }
-    td, th {
-      border: 1px solid #dddddd;
-      text-align: center;
-      width: 60px;
-      padding: 8px;
+    #a2 table {
+      border-collapse: collapse;
+      margin: 0 1.5rem 0.75rem 0;
     }
+    #a2 table td, #a2 table th {
+      border: 1px solid #666;
+      padding: 3px 10px;
+      color: #222;
+    }
+    .canvas-stack {
+      position: relative;
+      display: block;
+      margin: 0 0 16px 0;
+      min-height: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .canvas-stack canvas {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    #myCanvas3 { z-index: 1; }
+    #myCanvas3b { z-index: 2; pointer-events: none; }
   </style>
   <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      "fast-preview": { disabled: true },
-      tex2jax: { preview: "none" }
-    });
+    MathJax.Hub.Config({ "fast-preview": { disabled: true }, tex2jax: { preview: "none" } });
   </script>
 </head>
 <body>
-  <h5>Teacher solution view</h5>
-  <canvas id="myCanvas3" width="0.5" height="0.5" style="border:none"></canvas>
-  <div id="a2"></div>
+  <header>
+    <h1 class="h4">Solution window</h1>
+  </header>
+  <main>
+    <div class="canvas-stack" id="canvasStack3">
+      <canvas id="myCanvas3" width="0.5" height="0.5" style="border:none" aria-hidden="true"></canvas>
+      <canvas id="myCanvas3b" width="0.5" height="0.5" style="border:none" aria-hidden="true"></canvas>
+    </div>
+    <div id="a2" aria-live="polite" aria-atomic="false"></div>
+  </main>
 </body>
 </html>

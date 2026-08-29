@@ -48,3 +48,13 @@ Each generator exports `generate()` returning `{ question, solution, notesLink, 
 ## Secret teacher window
 
 Type **`chpz`** on the main page to open `SolnWin.html`. Solutions update automatically when a new question is generated.
+
+
+## Usability notes (aligned with Maths Revision)
+
+- **Separate solution window** button (legacy key sequence `chpz` still works)
+- SolnWin shows diagrams only when `withSolution` is true; question+solution figures overlay when both exist
+- Background colour applies to an open SolnWin
+- Test Designer supports keyboard reorder (Up/Down, Alt+arrows)
+- Accessibility statement: `accessibility.html` (complete placeholders before publishing)
+- HCF/LCM prime trees include a text diagram description
