@@ -15,6 +15,7 @@ const topicMap = {
 };
 
 let currentSumData = null;
+let solutionShowing = false;
 let views = 0;
 let SolnWin = null;
 
@@ -248,6 +249,7 @@ function generateQuestion(topic) {
   try {
     if (!topic) throw new Error('No topic key on button (data-topic missing)');
     currentSumData = registry.get(topic).generate();
+  solutionShowing = false;
 
     const qEl = document.getElementById('q');
     const aEl = document.getElementById('a');
@@ -301,40 +303,51 @@ function generateQuestion(topic) {
 function toggleSolution() {
   const aDiv = document.getElementById('a');
   const canvas = document.getElementById('myCanvas');
-  if (!aDiv || !currentSumData) return;
+  const canvas2 = document.getElementById('myCanvas2');
 
-  if (aDiv.innerHTML === '') {
-    aDiv.innerHTML = currentSumData.solution;
-    if (typeof window.eqnformat === 'function') window.eqnformat('a');
-    else if (utils.eqnformat) utils.eqnformat('a');
+  if (!solutionShowing) {
+    aDiv.innerHTML = currentSumData.solution || '';
+    aDiv.style.visibility = 'visible';
+    if (currentSumData.solution) {
+      utils.eqnformat('a');
+    }
     views++;
     updateViewCount();
-    setSolutionExpanded(true);
+    solutionShowing = true;
+    if (typeof setSolutionExpanded === 'function') setSolutionExpanded(true);
 
-    if (canvas && currentSumData.canvas && currentSumData.canvas.withSolution) {
-      canvas.height = currentSumData.canvas.height;
-      canvas.width = currentSumData.canvas.width;
-      const ctx = canvas.getContext('2d');
-      if (typeof currentSumData.canvas.questionDraw === 'function') {
-        currentSumData.canvas.questionDraw(ctx);
+    if (currentSumData.canvas && currentSumData.canvas.withSolution) {
+      const w = currentSumData.canvas.width;
+      const h = currentSumData.canvas.height;
+      const stack = document.getElementById('canvasStack');
+      if (stack) {
+        stack.style.width = w + 'px';
+        stack.style.height = h + 'px';
       }
-      currentSumData.canvas.draw(ctx);
-      updateDiagramDescription(true, true);
+      if (canvas2) {
+        canvas2.height = h;
+        canvas2.width = w;
+        canvas2.style.visibility = 'visible';
+        currentSumData.canvas.draw(canvas2.getContext('2d'));
+      } else {
+        canvas.height = h;
+        canvas.width = w;
+        currentSumData.canvas.draw(canvas.getContext('2d'));
+      }
+      if (typeof updateDiagramDescription === 'function') updateDiagramDescription(true, true);
     }
   } else {
     aDiv.innerHTML = '';
-    setSolutionExpanded(false);
-    if (canvas && currentSumData.canvas && currentSumData.canvas.withSolution) {
-      if (typeof currentSumData.canvas.questionDraw === 'function') {
-        canvas.height = currentSumData.canvas.height;
-        canvas.width = currentSumData.canvas.width;
-        currentSumData.canvas.questionDraw(canvas.getContext('2d'));
-        updateDiagramDescription(true, false);
-      } else {
-        canvas.height = 0.5;
-        canvas.width = 0.5;
-        updateDiagramDescription(false, false);
-      }
+    aDiv.style.visibility = 'hidden';
+    solutionShowing = false;
+    if (typeof setSolutionExpanded === 'function') setSolutionExpanded(false);
+    if (canvas2) {
+      canvas2.height = 0.5;
+      canvas2.width = 0.5;
+      canvas2.style.visibility = 'hidden';
+    }
+    if (currentSumData.canvas && currentSumData.canvas.withSolution) {
+      if (typeof updateDiagramDescription === 'function') updateDiagramDescription(true, false);
     }
   }
 }
