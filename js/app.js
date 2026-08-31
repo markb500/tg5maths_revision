@@ -253,9 +253,21 @@ function generateQuestion(topic) {
     const qEl = document.getElementById('q');
     const aEl = document.getElementById('a');
     if (qEl) qEl.innerHTML = currentSumData.question;
-    if (aEl) aEl.innerHTML = '';
+    if (aEl) {
+      aEl.innerHTML = '';
+      aEl.style.visibility = 'hidden';
+    }
+    solutionShowing = false;
     setSolutionExpanded(false);
     updateDiagramDescription(false, false);
+
+    // Clear previous solution overlay left over from last topic
+    const canvas2 = document.getElementById('myCanvas2');
+    if (canvas2) {
+      canvas2.height = 0.5;
+      canvas2.width = 0.5;
+      canvas2.style.visibility = 'hidden';
+    }
 
     const notes = document.getElementById('noteslink');
     if (notes) {
