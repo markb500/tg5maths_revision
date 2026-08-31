@@ -147,6 +147,37 @@ export function generate() {
 
   const notesLink = "images/20200504-MathsBook4HCFLCMFactv1_5-APO.pdf#page=3";
 
+  function formatPrimeList(primesExp) {
+    const parts = [];
+    for (const p in primesExp) {
+      const e = primesExp[p];
+      if (e === 1) parts.push(String(p));
+      else parts.push(p + '^' + e);
+    }
+    if (parts.length === 0) return 'none';
+    if (parts.length === 1) return parts[0];
+    if (parts.length === 2) return parts[0] + ' and ' + parts[1];
+    return parts.slice(0, -1).join(', ') + ', and ' + parts[parts.length - 1];
+  }
+
+  /** Singular when only one distinct prime base (e.g. 25 → 5^2). */
+  function primeFactorClause(coeff, primesExp) {
+    const list = formatPrimeList(primesExp);
+    const distinct = Object.keys(primesExp).length;
+    if (distinct === 1) {
+      return 'For coefficient ' + coeff + ', the prime factor is ' + list;
+    }
+    return 'For coefficient ' + coeff + ', the prime factors are ' + list;
+  }
+
+  const diagramDescription =
+    'Diagram showing three prime-factor trees, one for each numerical coefficient in the expression (' +
+    term1[0] + ', ' + term2[0] + ', and ' + term3[0] + '). ' +
+    'Each tree shows successive division by prime factors down to 1, with the prime factors listed under that term. ' +
+    primeFactorClause(term1[0], primesExp1) + '. ' +
+    primeFactorClause(term2[0], primesExp2) + '. ' +
+    primeFactorClause(term3[0], primesExp3) + '.';
+
   return {
     question: sumq,
     solution: suma,
@@ -155,11 +186,8 @@ export function generate() {
       height: 350,
       width: 500,
       withSolution: true,
-      description:
-        'Diagram (shown with the solution): three prime-factor trees, one for each term in the expression, ' +
-        'with prime factors listed beside each tree to support finding the HCF and LCM.',
-      solutionDescription:
-        'Diagram (solution): three prime-factor trees for the three terms, with factors used to form the HCF and LCM.',
+      description: diagramDescription,
+      solutionDescription: diagramDescription,
       draw: (ctx) => {
         ctx.clearRect(0, 0, 500, 350);
         primeTree(ctx, term1, primeFacs1, primesExp1, 75, 50);
